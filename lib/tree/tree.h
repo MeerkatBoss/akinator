@@ -3,10 +3,12 @@
 
 #include <stddef.h>
 
+typedef const char* element_t;
+
 struct tree_node
 {
-    const char* data;
-    int leaf;
+    element_t data;
+    size_t node_number;
     tree_node* parent;
     tree_node* left;
     tree_node* right;
@@ -25,7 +27,7 @@ struct binary_tree
  * @param[in] parent Parent node
  * @return Allocated `tree_node` instance
  */
-tree_node* make_node(const char* data, tree_node* parent = NULL);
+tree_node* make_node(element_t data, tree_node* parent = NULL);
 
 /**
  * @brief Delete created node and its subtree.
@@ -62,5 +64,13 @@ void next_iterator(tree_node **node);
  * @param[inout] node Current tree node
  */
 void prev_iterator(tree_node **node);
+
+/**
+ * @brief Create graphic representation of a tree
+ * 
+ * @param[in] tree `binary_tree` instance
+ * @param[in] filename Dump file name
+ */
+void tree_dump(const binary_tree* tree, const char* filename);
 
 #endif

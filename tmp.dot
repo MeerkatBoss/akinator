@@ -1,0 +1,38 @@
+digraph G{
+layout=dot
+rankdir=TD
+splines=ortho
+nodesep=0.1
+overlap=voronoi
+bgcolor=lightsteelblue1
+node [shape=plaintext color=darkslategray]
+node0 [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="navajowhite">
+<TR><TD ALIGN="CENTER" COLSPAN="2" BGCOLOR="peru"><FONT COLOR="azure"><B>root [0]</B></FONT></TD></TR>
+<TR><TD COLSPAN="2"><I>data: </I> 0</TD></TR>
+<TR><TD><I>left: </I>1</TD><TD><I>right: </I>2</TD></TR>
+</TABLE>>]
+node1 [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="springgreen">
+<TR><TD ALIGN="CENTER" COLSPAN="2" BGCOLOR="darkslategrey"><FONT COLOR="azure"><B>leaf [1]</B></FONT></TD></TR>
+<TR><TD COLSPAN="2"><I>data: </I> 1</TD></TR>
+<TR><TD><I>left: </I>0</TD><TD><I>right: </I>0</TD></TR>
+</TABLE>>]
+node2 [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="springgreen">
+<TR><TD ALIGN="CENTER" COLSPAN="2" BGCOLOR="springgreen4"><FONT COLOR="azure"><B>node [2]</B></FONT></TD></TR>
+<TR><TD COLSPAN="2"><I>data: </I> 2</TD></TR>
+<TR><TD><I>left: </I>3</TD><TD><I>right: </I>4</TD></TR>
+</TABLE>>]
+node3 [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="springgreen">
+<TR><TD ALIGN="CENTER" COLSPAN="2" BGCOLOR="darkslategrey"><FONT COLOR="azure"><B>leaf [3]</B></FONT></TD></TR>
+<TR><TD COLSPAN="2"><I>data: </I> 3</TD></TR>
+<TR><TD><I>left: </I>0</TD><TD><I>right: </I>0</TD></TR>
+</TABLE>>]
+node4 [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="springgreen">
+<TR><TD ALIGN="CENTER" COLSPAN="2" BGCOLOR="darkslategrey"><FONT COLOR="azure"><B>leaf [4]</B></FONT></TD></TR>
+<TR><TD COLSPAN="2"><I>data: </I> 4</TD></TR>
+<TR><TD><I>left: </I>0</TD><TD><I>right: </I>0</TD></TR>
+</TABLE>>]
+node0->node1 [color=midnightblue]
+node0->node2 [color=midnightblue]
+node2->node3 [color=midnightblue]
+node2->node4 [color=midnightblue]
+}
