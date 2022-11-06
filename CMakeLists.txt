@@ -45,6 +45,8 @@ add_subdirectory(lib/graphs)
 
 add_subdirectory(lib/tree)
 
+add_subdirectory(lib/akinator)
+
 add_subdirectory(src)
 
 add_custom_target(run

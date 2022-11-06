@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <string.h>
 
 #include "logger.h"
 #include "graph.h"
@@ -27,13 +28,13 @@
                             (node->left ? node->left ->node_number  : 0),\
                             (node->right? node->right->node_number  : 0)
 
-tree_node* make_node(element_t data, tree_node* parent)
+tree_node* make_node(const char* data, tree_node* parent)
 {
     LOG_ASSERT(data != NULL, return NULL);
 
     tree_node* node = (tree_node*)calloc(1, sizeof(*node));
     *node = {
-        .data = data,
+        .data = strdup(data),
         .node_number = 0,
         .parent = parent,
         .left = NULL,
@@ -50,6 +51,7 @@ void delete_node(tree_node* node)
     if (node->left) delete_node(node->left);
     if (node->right) delete_node(node->right);
 
+    free(node->data);
     free(node);
 }
 

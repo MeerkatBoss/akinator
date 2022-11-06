@@ -3,7 +3,7 @@
 
 #include <stddef.h>
 
-typedef const char* element_t;
+typedef char* element_t;
 
 struct tree_node
 {
@@ -27,7 +27,7 @@ struct binary_tree
  * @param[in] parent Parent node
  * @return Allocated `tree_node` instance
  */
-tree_node* make_node(element_t data, tree_node* parent = NULL);
+tree_node* make_node(const char* data, tree_node* parent = NULL);
 
 /**
  * @brief Delete created node and its subtree.
