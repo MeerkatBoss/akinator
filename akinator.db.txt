@@ -1,5 +1,13 @@
 {
 	"an animal"
 	{ "Poltorashka" }
-	{ "Redkozubov" }
+	{
+		"teaching calculus"
+		{ "Redkozubov" }
+		{
+			"a singer"
+			{ "Alla Pugachyova" }
+			{ "Dedinsky" }
+		}
+	}
 }

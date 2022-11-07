@@ -17,10 +17,34 @@ node1 [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" B
 <TR><TD><I>left: </I>0</TD><TD><I>right: </I>0</TD></TR>
 </TABLE>>]
 node2 [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="springgreen">
-<TR><TD ALIGN="CENTER" COLSPAN="2" BGCOLOR="darkslategrey"><FONT COLOR="azure"><B>leaf [2]</B></FONT></TD></TR>
+<TR><TD ALIGN="CENTER" COLSPAN="2" BGCOLOR="springgreen4"><FONT COLOR="azure"><B>node [2]</B></FONT></TD></TR>
+<TR><TD COLSPAN="2"><I>data: </I> teaching calculus</TD></TR>
+<TR><TD><I>left: </I>3</TD><TD><I>right: </I>4</TD></TR>
+</TABLE>>]
+node3 [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="springgreen">
+<TR><TD ALIGN="CENTER" COLSPAN="2" BGCOLOR="darkslategrey"><FONT COLOR="azure"><B>leaf [3]</B></FONT></TD></TR>
 <TR><TD COLSPAN="2"><I>data: </I> Redkozubov</TD></TR>
+<TR><TD><I>left: </I>0</TD><TD><I>right: </I>0</TD></TR>
+</TABLE>>]
+node4 [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="springgreen">
+<TR><TD ALIGN="CENTER" COLSPAN="2" BGCOLOR="springgreen4"><FONT COLOR="azure"><B>node [4]</B></FONT></TD></TR>
+<TR><TD COLSPAN="2"><I>data: </I> a singer</TD></TR>
+<TR><TD><I>left: </I>5</TD><TD><I>right: </I>6</TD></TR>
+</TABLE>>]
+node5 [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="springgreen">
+<TR><TD ALIGN="CENTER" COLSPAN="2" BGCOLOR="darkslategrey"><FONT COLOR="azure"><B>leaf [5]</B></FONT></TD></TR>
+<TR><TD COLSPAN="2"><I>data: </I> Alla Pugachyova</TD></TR>
+<TR><TD><I>left: </I>0</TD><TD><I>right: </I>0</TD></TR>
+</TABLE>>]
+node6 [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="springgreen">
+<TR><TD ALIGN="CENTER" COLSPAN="2" BGCOLOR="darkslategrey"><FONT COLOR="azure"><B>leaf [6]</B></FONT></TD></TR>
+<TR><TD COLSPAN="2"><I>data: </I> Dedinsky</TD></TR>
 <TR><TD><I>left: </I>0</TD><TD><I>right: </I>0</TD></TR>
 </TABLE>>]
 node0->node1 [color=midnightblue]
 node0->node2 [color=midnightblue]
+node2->node3 [color=midnightblue]
+node2->node4 [color=midnightblue]
+node4->node5 [color=midnightblue]
+node4->node6 [color=midnightblue]
 }

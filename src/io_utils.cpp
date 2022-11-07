@@ -85,6 +85,9 @@ int print_definition(binary_tree* tree)
     char* word = NULL;
     size_t word_len = 0;
 
+    print_and_say("Which word do you want to get definition of?\n");
+
+    skip_line();
     if(getline(&word, &word_len, stdin) == -1)
         return 0;
     *strchr(word, '\n') = '\0';
@@ -101,16 +104,22 @@ int print_definition(binary_tree* tree)
     int* answers = (int*) calloc(tree->size, sizeof(*answers));
 
     int def_length = get_definition(node, questions, answers);
+
+    
+    setvbuf(stdout, NULL, _IONBF, 0);
     print_and_say("Definition of \"%s\" is following: %s", word, word);
 
     for (int i = 0; i < def_length; i++)
-        print_and_say("is %s%s%s",
+        print_and_say(" is %s%s%c",
             answers[i] ? "" : "not ",
             questions[i]->data,
-            i < def_length - 1 ? ", " : "."
+            i < def_length - 1 ? ',' : '.'
             );
     
     putc('\n', stdout);
+    
+    setvbuf(stdout, NULL, _IOLBF, BUFSIZ);
+
     free(questions);
     free(answers);
     free(word);
@@ -122,12 +131,13 @@ int compare_words(binary_tree* tree)
 {
     char *word1 = NULL, *word2 = NULL;
     size_t word_len = 0;
+    
+    print_and_say("Which words would you like to compare?\n");
 
     skip_line();
     if(getline(&word1, &word_len, stdin) == -1)
         return 0;
     word_len = 0;
-    skip_line();
     if(getline(&word2, &word_len, stdin) == -1)
     {
         free(word1);
@@ -339,13 +349,11 @@ static void print_and_say(const char* format, ...)
     va_start(args, format);
     vprintf(format, args);
     va_end(args);
-/*
     va_start(args, format);
     FILE* voice = popen("festival --tts", "w");
     vfprintf(voice, format, args);
     fclose(voice);
     va_end(args);
-    */
 }
 
 static int get_answer(void)

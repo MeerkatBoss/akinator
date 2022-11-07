@@ -61,7 +61,7 @@ int get_definition(tree_node* node, tree_node* questions[], int answers[])
 
     tree_node* tmp = node;
     while ((tmp = tmp->parent))
-        tmp++;
+        cnt++;
     
     for (int i = cnt - 1; i >= 0; i--)
     {
