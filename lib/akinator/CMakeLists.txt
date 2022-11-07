@@ -1,4 +1,4 @@
-add_library(libakinator akinator.h)
+add_library(libakinator akinator.cpp)
 
 target_link_libraries(libakinator PRIVATE liblogs)
 target_link_libraries(libakinator PUBLIC libtree)

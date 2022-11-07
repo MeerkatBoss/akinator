@@ -120,12 +120,14 @@ void prev_iterator(tree_node **node)
 
 void tree_dump(const binary_tree* tree, const char* filename)
 {
-    size_t *node_id = (size_t*)calloc(tree->size, sizeof(*node_id));
-
     /* assign numbers to nodes */
     size_t cnt = 0;
     for (tree_node* it = tree->root; it != NULL; next_iterator(&it))
         it->node_number = cnt++;
+
+    LOG_ASSERT(cnt == tree->size, return);
+
+    size_t *node_id = (size_t*)calloc(tree->size, sizeof(*node_id));
 
     graph_builder builder = get_builder();
     add_property(&builder, "bgcolor=%s", BGCOLOR);

@@ -49,7 +49,6 @@ void draw(graph_builder* builder, const char* filename)
 
     //const char *src_name = get_file_name(builder->stream);
     sprintf(cmd_buf, "dot -Tpng -o %s %s", filename, TMPFILE);
-    printf("%s\n", cmd_buf);
 
     system(cmd_buf);
 }

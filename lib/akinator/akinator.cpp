@@ -3,9 +3,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+#define NTRACE
 #include "logger.h"
 
 #include "akinator.h"
+
 
 tree_node* next_question(tree_node* node, int answer)
 {
@@ -29,7 +31,7 @@ tree_node* find_terminal(binary_tree* tree, const char* name)
     LOG_ASSERT(name, return NULL);
 
     for (tree_node* it = tree->root; it != NULL; next_iterator(&it))
-        if (is_terminal(it) && strcasecmp(name, it->data))
+        if (is_terminal(it) && strcasecmp(name, it->data) == 0)
             return it;
 
     return NULL;
@@ -105,7 +107,7 @@ tree_node* get_difference(binary_tree* tree, tree_node* first, tree_node* second
 
 void split_with_question(binary_tree* tree, tree_node* node, const char* question, const char* terminal)
 {
-    static char buffer[16] = "";
+    static char buffer[17] = "";
 
     LOG_ASSERT(tree, return);
     LOG_ASSERT(node, return);
@@ -115,7 +117,7 @@ void split_with_question(binary_tree* tree, tree_node* node, const char* questio
     int n_read = 0;
     int invert = 0;
 
-    sscanf(buffer, " %16s %*c%n", buffer, &n_read);
+    sscanf(question, " %16s %*c%n", buffer, &n_read);
 
     LOG_ASSERT(n_read > 0, return);
 
@@ -125,11 +127,11 @@ void split_with_question(binary_tree* tree, tree_node* node, const char* questio
         invert = 1;
     }
 
-    node->left = make_node(terminal, node->left);
-    node->right = make_node(node->data, node->right);
+    node->left = make_node(terminal, node);
+    node->right = make_node(node->data, node);
     free(node->data);
     node->data = strdup(question);
-    tree->size+=2;
+    tree->size += 2;
 
     if (invert)
     {
@@ -150,19 +152,19 @@ static void indent(FILE* file, int tab_cnt);
 
 static void print_subtree(tree_node* root, FILE* file, int level)
 {
+    LOG_ASSERT(root, return);
+
+    if (is_terminal(root))
+    {
+        indent(file, level);
+        fprintf(file, "{ \"%s\" }\n", root->data);
+        return;
+    }
     indent(file, level);
     fputs("{\n", file);
 
     indent(file, level+1);
-    fputs(root->data, file);
-    
-    if (is_terminal(root))
-    {
-        fputs(" }\n", file);
-        return;
-    }
-
-    fputc('\n', file);
+    fprintf(file, "\"%s\"\n", root->data);
 
     if (root->left)
         print_subtree(root->left, file, level + 1);
@@ -184,7 +186,13 @@ static tree_node* load_node(FILE* file, size_t* size);
 binary_tree load_tree(FILE* file)
 {
     size_t size = 0;
-    tree_node* root = load_node(file, &size);
+    tree_node* root = NULL;
+
+    LOG_PRINT_TRACE(
+        root = load_node(file, &size),
+        "size = %zu",
+        size
+    );
 
     return {
         .root = root,
@@ -198,17 +206,25 @@ static tree_node* load_node(FILE* file, size_t* size)
     static char buffer[BUFFER_SIZE] = "";
     char fst = '\0';
 
-    fscanf(file, " %c", &fst);
+    if (fscanf(file, " %c", &fst) != 1)
+        return NULL;
 
     LOG_ASSERT(fst == '{' || fst == '}', return NULL);
 
     if (fst == '}')
     {
-        *size = 1;
+        *size = 0;
+        ungetc(fst, file);
         return NULL;
     }
 
-    LOG_ASSERT(fscanf(file, "\"%[^\"]\"", buffer), return NULL);
+    int read = 0;
+    LOG_PRINT_TRACE(
+        read = fscanf(file, " \" %[^\"] \" ", buffer),
+        "read = %d, buffer = %s",
+        read, buffer
+    );
+
     tree_node* result = make_node(buffer);
     size_t l_size = 0;
     size_t r_size = 0;
@@ -221,7 +237,11 @@ static tree_node* load_node(FILE* file, size_t* size)
 
     if(result->right)
         result->right->parent = result;
+    
+    LOG_ASSERT(fscanf(file, " %c", &fst) == 1, return NULL);
+    LOG_ASSERT(fst == '}', return NULL);
 
-    *size = l_size + r_size;
+
+    *size = l_size + r_size + 1;
     return result;
 }

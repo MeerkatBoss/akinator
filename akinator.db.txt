@@ -1,0 +1,5 @@
+{
+	"an animal"
+	{ "Poltorashka" }
+	{ "Redkozubov" }
+}

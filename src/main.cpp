@@ -1,11 +1,10 @@
-#include <stdio.h>
-
 #include "logger.h"
 #include "tree.h"
 
+#include "io_utils.h"
+
 int main()
 {
-    add_default_console_logger();
     add_logger({
         .name = "HTML logs",
         .stream = fopen("logs.html", "a"),
@@ -13,18 +12,15 @@ int main()
         .settings_mask = LGS_USE_HTML
     });
 
-    binary_tree tree = tree_ctor();
-    tree.root = make_node("0");
-    tree.root->left = make_node("1", tree.root);
-    tree.root->right = make_node("2", tree.root);
-    tree.root->right->left = make_node("3", tree.root->right);
-    tree.root->right->right = make_node("4", tree.root->right);
-    tree.size = 5;
+    main_function run_program = NULL;
+    binary_tree tree = akinator_init();
 
-    tree_dump(&tree, "dump1.png");
+    while((run_program = choose_mode()))
+        LOG_ASSERT_ERROR(
+            run_program(&tree) == 0, return 1,
+            "Failed to execute program: invalid input", NULL
+        );
 
-    log_message(MSG_TRACE, "Dumping tree: <h2>Tree built</h2><br/>"
-            "<img src=\"dump1.png\" style=\"height: 50em\"/><hr/>");
-
-    return 0;
+    tree_dtor(&tree);
+    return 1;
 }
