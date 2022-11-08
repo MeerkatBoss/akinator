@@ -26,9 +26,6 @@ binary_tree akinator_init(void)
 
 static void skip_line(void);
 
-static void print_and_say(const char* format, ...)
-    __attribute__((format (printf, 1, 2)));
-
 main_function choose_mode(void)
 {
     static char BUFFER[3] = "";
@@ -166,16 +163,65 @@ int compare_words(binary_tree* tree)
         return 0;
     }
 
-    int first_true = 0;
-    tree_node* diff = get_difference(tree, node1, node2, &first_true);
+    tree_node** questions1 = (tree_node**) calloc(tree->size, sizeof(*questions1));
+    int* answers1 = (int*) calloc(tree->size, sizeof(*answers1));
+    tree_node** questions2 = (tree_node**) calloc(tree->size, sizeof(*questions2));
+    int* answers2 = (int*) calloc(tree->size, sizeof(*answers2));
 
-    print_and_say("The main difference between %s and %s is following:\n", word1, word2);
-    print_and_say("%s is %s%s, while %s is%s.\n",
-        word1, first_true ? "" : "not ", diff->data,
-        word2, first_true ? " not" : "");
+    int def_length1 = get_definition(node1, questions1, answers1);
+    int def_length2 = get_definition(node2, questions2, answers2);
+
+    int common = 0;
+    
+    setvbuf(stdout, NULL, _IONBF, 0);
+    if (*answers1 == *answers2)
+    {
+        print_and_say("%s and %s are similar in that they are both:", word1, word2);
+        while (answers1[common] == answers2[common])
+        {
+            if (common != 0)
+                putc(',', stdout);
+            print_and_say(" %s%s",
+                answers1[common] ? "" : "not ",
+                questions1[common]->data);
+            common++;
+        }
+        putc('.', stdout);
+        putc('\n', stdout);
+
+    }
+    else
+        print_and_say("%s and %s are completely different.\n", word1, word2);
+    
+    print_and_say("The difference between %s and %s is following:\n", word1, word2);
+
+    print_and_say("%s", word1);
+    for (int i = common; i < def_length1; i++)
+        print_and_say(" is %s%s%c",
+            answers1[i] ? "" : "not ",
+            questions1[i]->data,
+            i < def_length1 - 1 ? ',' : '.'
+            );
+    putc('\n', stdout);
+
+    print_and_say("%s", word2);
+    for (int i = common; i < def_length2; i++)
+        print_and_say(" is %s%s%c",
+            answers2[i] ? "" : "not ",
+            questions2[i]->data,
+            i < def_length2 - 1 ? ',' : '.'
+            );
+    putc('\n', stdout);
+
+    
+    setvbuf(stdout, NULL, _IOLBF, BUFSIZ);
 
     free(word1);
     free(word2);
+    free(questions1);
+    free(questions2);
+    free(answers1);
+    free(answers2);
     return 0;
 }
 
@@ -342,7 +388,7 @@ int quit(binary_tree* tree)
     exit(0);
 }
 
-static void print_and_say(const char* format, ...)
+void print_and_say(const char* format, ...)
 {
     va_list args = {};
 

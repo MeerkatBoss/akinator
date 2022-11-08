@@ -12,6 +12,8 @@ int main()
         .settings_mask = LGS_USE_HTML
     });
 
+    print_and_say("Hello, there!\n");
+
     main_function run_program = NULL;
     binary_tree tree = akinator_init();
 

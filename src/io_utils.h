@@ -76,4 +76,13 @@ int dump_tree(binary_tree* tree);
 [[noreturn]]
 int quit(binary_tree* tree);
 
+/**
+ * @brief Print message to `stdout` and pronounce it using
+ * festival
+ * 
+ */
+void print_and_say(const char* format, ...)
+    __attribute__((format (printf, 1, 2)));
+
+
 #endif
