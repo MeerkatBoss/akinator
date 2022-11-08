@@ -9,42 +9,78 @@ node [shape=plaintext color=darkslategray]
 node0 [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="navajowhite">
 <TR><TD ALIGN="CENTER" COLSPAN="2" BGCOLOR="peru"><FONT COLOR="azure"><B>root [0]</B></FONT></TD></TR>
 <TR><TD COLSPAN="2"><I>data: </I> an animal</TD></TR>
-<TR><TD><I>left: </I>1</TD><TD><I>right: </I>2</TD></TR>
+<TR><TD><I>left: </I>1</TD><TD><I>right: </I>4</TD></TR>
 </TABLE>>]
 node1 [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="springgreen">
-<TR><TD ALIGN="CENTER" COLSPAN="2" BGCOLOR="darkslategrey"><FONT COLOR="azure"><B>leaf [1]</B></FONT></TD></TR>
+<TR><TD ALIGN="CENTER" COLSPAN="2" BGCOLOR="springgreen4"><FONT COLOR="azure"><B>node [1]</B></FONT></TD></TR>
+<TR><TD COLSPAN="2"><I>data: </I> a cat</TD></TR>
+<TR><TD><I>left: </I>2</TD><TD><I>right: </I>3</TD></TR>
+</TABLE>>]
+node2 [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="springgreen">
+<TR><TD ALIGN="CENTER" COLSPAN="2" BGCOLOR="darkslategrey"><FONT COLOR="azure"><B>leaf [2]</B></FONT></TD></TR>
 <TR><TD COLSPAN="2"><I>data: </I> Poltorashka</TD></TR>
 <TR><TD><I>left: </I>0</TD><TD><I>right: </I>0</TD></TR>
 </TABLE>>]
-node2 [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="springgreen">
-<TR><TD ALIGN="CENTER" COLSPAN="2" BGCOLOR="springgreen4"><FONT COLOR="azure"><B>node [2]</B></FONT></TD></TR>
-<TR><TD COLSPAN="2"><I>data: </I> teaching calculus</TD></TR>
-<TR><TD><I>left: </I>3</TD><TD><I>right: </I>4</TD></TR>
-</TABLE>>]
 node3 [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="springgreen">
 <TR><TD ALIGN="CENTER" COLSPAN="2" BGCOLOR="darkslategrey"><FONT COLOR="azure"><B>leaf [3]</B></FONT></TD></TR>
-<TR><TD COLSPAN="2"><I>data: </I> Redkozubov</TD></TR>
+<TR><TD COLSPAN="2"><I>data: </I> Cockroach</TD></TR>
 <TR><TD><I>left: </I>0</TD><TD><I>right: </I>0</TD></TR>
 </TABLE>>]
 node4 [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="springgreen">
 <TR><TD ALIGN="CENTER" COLSPAN="2" BGCOLOR="springgreen4"><FONT COLOR="azure"><B>node [4]</B></FONT></TD></TR>
-<TR><TD COLSPAN="2"><I>data: </I> a singer</TD></TR>
+<TR><TD COLSPAN="2"><I>data: </I> teaching calculus</TD></TR>
 <TR><TD><I>left: </I>5</TD><TD><I>right: </I>6</TD></TR>
 </TABLE>>]
 node5 [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="springgreen">
 <TR><TD ALIGN="CENTER" COLSPAN="2" BGCOLOR="darkslategrey"><FONT COLOR="azure"><B>leaf [5]</B></FONT></TD></TR>
-<TR><TD COLSPAN="2"><I>data: </I> Alla Pugachyova</TD></TR>
+<TR><TD COLSPAN="2"><I>data: </I> Redkozubov</TD></TR>
 <TR><TD><I>left: </I>0</TD><TD><I>right: </I>0</TD></TR>
 </TABLE>>]
 node6 [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="springgreen">
-<TR><TD ALIGN="CENTER" COLSPAN="2" BGCOLOR="darkslategrey"><FONT COLOR="azure"><B>leaf [6]</B></FONT></TD></TR>
+<TR><TD ALIGN="CENTER" COLSPAN="2" BGCOLOR="springgreen4"><FONT COLOR="azure"><B>node [6]</B></FONT></TD></TR>
+<TR><TD COLSPAN="2"><I>data: </I> a singer</TD></TR>
+<TR><TD><I>left: </I>7</TD><TD><I>right: </I>12</TD></TR>
+</TABLE>>]
+node7 [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="springgreen">
+<TR><TD ALIGN="CENTER" COLSPAN="2" BGCOLOR="springgreen4"><FONT COLOR="azure"><B>node [7]</B></FONT></TD></TR>
+<TR><TD COLSPAN="2"><I>data: </I> a man</TD></TR>
+<TR><TD><I>left: </I>8</TD><TD><I>right: </I>11</TD></TR>
+</TABLE>>]
+node8 [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="springgreen">
+<TR><TD ALIGN="CENTER" COLSPAN="2" BGCOLOR="springgreen4"><FONT COLOR="azure"><B>node [8]</B></FONT></TD></TR>
+<TR><TD COLSPAN="2"><I>data: </I> teaching physics</TD></TR>
+<TR><TD><I>left: </I>9</TD><TD><I>right: </I>10</TD></TR>
+</TABLE>>]
+node9 [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="springgreen">
+<TR><TD ALIGN="CENTER" COLSPAN="2" BGCOLOR="darkslategrey"><FONT COLOR="azure"><B>leaf [9]</B></FONT></TD></TR>
+<TR><TD COLSPAN="2"><I>data: </I> Ovchinkin</TD></TR>
+<TR><TD><I>left: </I>0</TD><TD><I>right: </I>0</TD></TR>
+</TABLE>>]
+node10 [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="springgreen">
+<TR><TD ALIGN="CENTER" COLSPAN="2" BGCOLOR="darkslategrey"><FONT COLOR="azure"><B>leaf [10]</B></FONT></TD></TR>
+<TR><TD COLSPAN="2"><I>data: </I> Valery Meladze</TD></TR>
+<TR><TD><I>left: </I>0</TD><TD><I>right: </I>0</TD></TR>
+</TABLE>>]
+node11 [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="springgreen">
+<TR><TD ALIGN="CENTER" COLSPAN="2" BGCOLOR="darkslategrey"><FONT COLOR="azure"><B>leaf [11]</B></FONT></TD></TR>
+<TR><TD COLSPAN="2"><I>data: </I> Alla Pugachyova</TD></TR>
+<TR><TD><I>left: </I>0</TD><TD><I>right: </I>0</TD></TR>
+</TABLE>>]
+node12 [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="springgreen">
+<TR><TD ALIGN="CENTER" COLSPAN="2" BGCOLOR="darkslategrey"><FONT COLOR="azure"><B>leaf [12]</B></FONT></TD></TR>
 <TR><TD COLSPAN="2"><I>data: </I> Dedinsky</TD></TR>
 <TR><TD><I>left: </I>0</TD><TD><I>right: </I>0</TD></TR>
 </TABLE>>]
 node0->node1 [color=midnightblue]
-node0->node2 [color=midnightblue]
-node2->node3 [color=midnightblue]
-node2->node4 [color=midnightblue]
+node0->node4 [color=midnightblue]
+node1->node2 [color=midnightblue]
+node1->node3 [color=midnightblue]
 node4->node5 [color=midnightblue]
 node4->node6 [color=midnightblue]
+node6->node7 [color=midnightblue]
+node6->node12 [color=midnightblue]
+node7->node8 [color=midnightblue]
+node7->node11 [color=midnightblue]
+node8->node9 [color=midnightblue]
+node8->node10 [color=midnightblue]
 }

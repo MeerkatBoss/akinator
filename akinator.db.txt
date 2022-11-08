@@ -1,12 +1,24 @@
 {
 	"an animal"
-	{ "Poltorashka" }
+	{
+		"a cat"
+		{ "Poltorashka" }
+		{ "Cockroach" }
+	}
 	{
 		"teaching calculus"
 		{ "Redkozubov" }
 		{
 			"a singer"
-			{ "Alla Pugachyova" }
+			{
+				"a man"
+				{
+					"teaching physics"
+					{ "Ovchinkin" }
+					{ "Valery Meladze" }
+				}
+				{ "Alla Pugachyova" }
+			}
 			{ "Dedinsky" }
 		}
 	}
