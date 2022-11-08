@@ -1,0 +1,7 @@
+- Add text coloring
+- Standardize code style, refactor code
+- Add CONTRIBUTING.md
+- Hide cursor during output
+- Auto-open dump file
+- Differentiate between old and new nodes in tree
+- Refactor get_definition

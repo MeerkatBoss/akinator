@@ -51,6 +51,10 @@ int get_all_terminals(binary_tree* tree, tree_node* terminals[])
     return cnt;
 }
 
+/**
+ * TODO: questions[] is redundant
+ * TODO: Use stack for answers
+ */
 int get_definition(tree_node* node, tree_node* questions[], int answers[])
 {
     LOG_ASSERT(node, return -1);

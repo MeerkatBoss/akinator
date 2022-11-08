@@ -395,6 +395,7 @@ void print_and_say(const char* format, ...)
     va_start(args, format);
     vprintf(format, args);
     va_end(args);
+
     va_start(args, format);
     FILE* voice = popen("festival --tts", "w");
     vfprintf(voice, format, args);
